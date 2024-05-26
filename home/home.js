@@ -10,7 +10,7 @@ $(".menu > ul > li").click(function (e) {
     // remove active class of sub menu items
     $(this).siblings().find("ul").find("li").removeClass("active");
   });
-  
+    
   $(".menu-btn").click(function () {
     $(".sidebar").toggleClass("active");
   });
