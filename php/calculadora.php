@@ -14,7 +14,6 @@ $fechaIngreso = $_POST['fechaIngreso'];
 // Calcular el dinero total
 $dineroTotal = $ingresosPasivos + $ingresosActivos - ($gastosAlquiler + $gastosGenerales + $gastosExtras) - $deudas;
 
-$dineroTotal = $_POST['dineroTotal']
 // Insertar los datos en la tabla "finanzas"
 $query = "INSERT INTO finanzas(ingresosPasivos, ingresosActivos, gastosAlquiler, gastosGenerales, gastosExtras, deudas, fechaIngreso, dineroTotal)
         VALUES ('$ingresosPasivos', '$ingresosActivos', '$gastosAlquiler', '$gastosGenerales', '$gastosExtras', '$deudas', '$fechaIngreso', '$dineroTotal')";

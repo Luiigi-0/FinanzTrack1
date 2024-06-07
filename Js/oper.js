@@ -1,4 +1,3 @@
-// Definimos las variables para almacenar los datos ingresados por el usuario
 let ingresosPasivos = 0;
 let ingresosActivos = 0;
 let gastosAlquiler = 0;
@@ -6,6 +5,7 @@ let gastosGenerales = 0;
 let gastosExtras = 0;
 let deudas = 0;
 let dineroTotal = 0;
+let fechaIngreso = "";
 
 // Función para ingresar los datos desde los campos del formulario
 function ingresarDatos() {
@@ -16,7 +16,6 @@ function ingresarDatos() {
     gastosExtras = parseFloat(document.getElementById('gastosExtras').value) || 0;
     deudas = parseFloat(document.getElementById('deudas').value) || 0;
     fechaIngreso = document.getElementById('fechaIngreso').value;
-
 }
 
 // Función para calcular el dinero total
@@ -45,3 +44,10 @@ function calcularYMostrarResultados() {
     calcularDineroTotal();
     mostrarResultados();
 }
+
+// Adjuntar el evento de submit al formulario
+document.getElementById('formCalculadoraFinanciera').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevenir el envío del formulario
+    calcularYMostrarResultados();
+});
+
