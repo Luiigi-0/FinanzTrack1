@@ -44,12 +44,12 @@
                 </a>
                 <ul class="sub-menu">
                   <li>
-                    <a href="./html/semanales.html">
+                    <a href="./semanales.php">
                       <span class="text">Gastos semanales</span>
                     </a>
                   </li>
                   <li>
-                    <a href="./html/mensuales.html">
+                    <a href="./mensuales.php">
                       <span class="text">Gastos mensuales</span>
                     </a>
                   </li>
@@ -129,52 +129,15 @@
         </div>
       </div>
 
+      <script src="Js/oper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
+        integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
+        crossorigin="anonymous"></script>
+      <script src="Js/home.js"></script>
+
 
       <div class="credits">
             <h1>Calculadora Financiera</h1>
-            <form id="formCalculadoraFinanciera">
-                <div class="input-group">
-                    <label for="ingresosPasivos">Ingresos Pasivos:</label>
-                    <input type="number" id="ingresosPasivos" step="any">
-                </div>
-                <div class="input-group">
-                    <label for="ingresosActivos">Ingresos Activos:</label>
-                    <input type="number" id="ingresosActivos" step="any">
-                </div>
-                <div class="input-group">
-                    <label for="gastosAlquiler">Alquiler:</label>
-                    <input type="number" id="gastosAlquiler" step="any">
-                </div>
-                <div class="input-group">
-                    <label for="gastosGenerales">Gastos Generales:</label>
-                    <input type="number" id="gastosGenerales" step="any">
-                </div>
-                <div class="input-group">
-                    <label for="gastosExtras">Gastos Extras:</label>
-                    <input type="number" id="gastosExtras" step="any">
-                </div>
-                <div class="input-group">
-                    <label for="deudas">Deudas:</label>
-                    <input type="number" id="deudas" step="any">
-                </div>
-                <div class="input-group">
-                    <label for="fechaIngreso">Fecha de ingreso:</label>
-                    <input type="date" id="fechaIngreso" step="any">
-                </div>
-                <button type="button" onclick="calcularYMostrarResultados()">Calcular</button>
-                <button type="reset">Reset</button>
-            </form>
-            <div class="result" id="result">
-                <!-- Aquí se mostrarán los resultados -->
-            </div>
-        </div>
-    </div>
-    <script src="Js/oper.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
-      integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
-      crossorigin="anonymous"
-    ></script>
-    <script src="Js/home.js"></script>
+          
 </body>
 </html>
