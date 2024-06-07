@@ -5,12 +5,12 @@ let gastos = 0;
 let deudas = 0;
 let dineroTotal = 0;
 
-// Función para ingresar los datos
+// Función para ingresar los datos desde los campos del formulario
 function ingresarDatos() {
-    ingresosPasivos = parseFloat(prompt("Ingrese sus ingresos pasivos:"));
-    ingresosActivos = parseFloat(prompt("Ingrese sus ingresos activos:"));
-    gastos = parseFloat(prompt("Ingrese sus gastos:"));
-    deudas = parseFloat(prompt("Ingrese sus deudas:"));
+    ingresosPasivos = parseFloat(document.getElementById('ingresosPasivos').value) || 0;
+    ingresosActivos = parseFloat(document.getElementById('ingresosActivos').value) || 0;
+    gastos = parseFloat(document.getElementById('gastos').value) || 0;
+    deudas = parseFloat(document.getElementById('deudas').value) || 0;
 }
 
 // Función para calcular el dinero total
@@ -19,15 +19,20 @@ function calcularDineroTotal() {
 }
 
 // Función para mostrar los resultados
-function mostrarResultados() {  
-    console.log("Ingresos pasivos: " + ingresosPasivos);
-    console.log("Ingresos activos: " + ingresosActivos);
-    console.log("Gastos: " + gastos);
-    console.log("Deudas: " + deudas);
-    console.log("Dinero total: " + dineroTotal);
+function mostrarResultados() {
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = `
+        <p>Ingresos pasivos: ${ingresosPasivos}</p>
+        <p>Ingresos activos: ${ingresosActivos}</p>
+        <p>Gastos: ${gastos}</p>
+        <p>Deudas: ${deudas}</p>
+        <p><strong>Dinero total: ${dineroTotal}</strong></p>
+    `;
 }
 
-// Llamamos a las funciones para que el usuario ingrese los datos, se calcule el dinero total y se muestren los resultados
-ingresarDatos();
-calcularDineroTotal();
-mostrarResultados();
+// Función para ingresar datos, calcular el dinero total y mostrar los resultados
+function calcularYMostrarResultados() {
+    ingresarDatos();
+    calcularDineroTotal();
+    mostrarResultados();
+}
