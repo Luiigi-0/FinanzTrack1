@@ -36,9 +36,9 @@
                     <p class="title">Main</p>
                     <ul>
                         <li>
-                            <a href="#">
+                            <a href="./home.php">
                                 <i class="icon ph-bold ph-house-simple"></i>
-                                <span class="text">Dashboard</span>
+                                <span class="text">Inicio</span>
                             </a>
                         </li>
                         <li>
