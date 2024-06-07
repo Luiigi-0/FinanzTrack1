@@ -146,10 +146,6 @@
                     <input type="number" id="gastosAlquiler" step="any">
                 </div>
                 <div class="input-group">
-                    <label for="gastosHi">Hi:</label>
-                    <input type="number" id="gastosHi" step="any">
-                </div>
-                <div class="input-group">
                     <label for="gastosGenerales">Gastos Generales:</label>
                     <input type="number" id="gastosGenerales" step="any">
                 </div>
@@ -160,6 +156,10 @@
                 <div class="input-group">
                     <label for="deudas">Deudas:</label>
                     <input type="number" id="deudas" step="any">
+                </div>
+                <div class="input-group">
+                    <label for="fechaIngreso">Fecha de ingreso:</label>
+                    <input type="date" id="fechaIngreso" step="any">
                 </div>
                 <button type="button" onclick="calcularYMostrarResultados()">Calcular</button>
                 <button type="reset">Reset</button>

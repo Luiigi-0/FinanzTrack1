@@ -2,7 +2,6 @@
 let ingresosPasivos = 0;
 let ingresosActivos = 0;
 let gastosAlquiler = 0;
-let gastosHi = 0;
 let gastosGenerales = 0;
 let gastosExtras = 0;
 let deudas = 0;
@@ -13,15 +12,16 @@ function ingresarDatos() {
     ingresosPasivos = parseFloat(document.getElementById('ingresosPasivos').value) || 0;
     ingresosActivos = parseFloat(document.getElementById('ingresosActivos').value) || 0;
     gastosAlquiler = parseFloat(document.getElementById('gastosAlquiler').value) || 0;
-    gastosHi = parseFloat(document.getElementById('gastosHi').value) || 0;
     gastosGenerales = parseFloat(document.getElementById('gastosGenerales').value) || 0;
     gastosExtras = parseFloat(document.getElementById('gastosExtras').value) || 0;
     deudas = parseFloat(document.getElementById('deudas').value) || 0;
+    fechaIngreso = document.getElementById('fechaIngreso').value;
+
 }
 
 // Función para calcular el dinero total
 function calcularDineroTotal() {
-    dineroTotal = ingresosPasivos + ingresosActivos - (gastosAlquiler + gastosHi + gastosGenerales + gastosExtras) - deudas;
+    dineroTotal = ingresosPasivos + ingresosActivos - (gastosAlquiler + gastosGenerales + gastosExtras) - deudas;
 }
 
 // Función para mostrar los resultados
@@ -31,7 +31,6 @@ function mostrarResultados() {
         <p>Ingresos pasivos: ${ingresosPasivos}</p>
         <p>Ingresos activos: ${ingresosActivos}</p>
         <p>Gastos Alquiler: ${gastosAlquiler}</p>
-        <p>Gastos Hi: ${gastosHi}</p>
         <p>Gastos Generales: ${gastosGenerales}</p>
         <p>Gastos Extras: ${gastosExtras}</p>
         <p>Deudas: ${deudas}</p>
