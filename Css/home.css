@@ -1,21 +1,25 @@
-@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900);
+@import url('https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
 
 /* Reset CSS */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inter", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
+
 body {
   background-color: #dbe2f4;
 }
+
 .container {
   display: flex;
   align-items: center;
   width: 100%;
   min-height: 100vh;
 }
+
 .sidebar {
   position: relative;
   width: 256px;
@@ -25,25 +29,30 @@ body {
   gap: 20px;
   background-color: #fff;
   padding: 24px;
-  border-radius: 30px;
+  border-radius: 20px;
+  box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1);
   transition: all 0.3s;
 }
+
 .sidebar .head {
   display: flex;
   gap: 20px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #f6f6f6;
+  border-bottom: 1px solid #e0e0e0;
 }
+
 .user-img {
   width: 44px;
   height: 44px;
   border-radius: 50%;
   overflow: hidden;
 }
+
 .user-img img {
   width: 100%;
   object-fit: cover;
 }
+
 .user-details .title,
 .menu .title {
   font-size: 10px;
@@ -52,18 +61,22 @@ body {
   text-transform: uppercase;
   margin-bottom: 10px;
 }
+
 .user-details .name {
   font-size: 14px;
   font-weight: 500;
 }
+
 .nav {
   flex: 1;
 }
+
 .menu ul li {
   position: relative;
   list-style: none;
   margin-bottom: 5px;
 }
+
 .menu ul li a {
   display: flex;
   align-items: center;
@@ -76,40 +89,49 @@ body {
   border-radius: 8px;
   transition: all 0.3s;
 }
+
 .menu ul li > a:hover,
 .menu ul li.active > a {
-  color: #000;
-  background-color: #f6f6f6;
+  color: #fff;
+  background-color: #9191bd;
 }
+
 .menu ul li .icon {
   font-size: 20px;
 }
+
 .menu ul li .text {
   flex: 1;
 }
+
 .menu ul li .arrow {
   font-size: 14px;
   transition: all 0.3s;
 }
+
 .menu ul li.active .arrow {
   transform: rotate(180deg);
 }
+
 .menu .sub-menu {
   display: none;
   margin-left: 20px;
   padding-left: 20px;
   padding-top: 5px;
-  border-left: 1px solid #f6f6f6;
+  border-left: 1px solid #e0e0e0;
 }
+
 .menu .sub-menu li a {
   padding: 10px 8px;
   font-size: 12px;
 }
+
 .menu:not(:last-child) {
   padding-bottom: 10px;
   margin-bottom: 20px;
-  border-bottom: 2px solid #f6f6f6;
+  border-bottom: 2px solid #e0e0e0;
 }
+
 .menu-btn {
   position: absolute;
   right: -14px;
@@ -122,36 +144,48 @@ body {
   justify-content: center;
   cursor: pointer;
   color: #757575;
-  border: 2px solid #f6f6f6;
+  border: 2px solid #e0e0e0;
   background-color: #fff;
-}
-.menu-btn:hover i {
-  color: #000;
-}
-.menu-btn i {
   transition: all 0.3s;
 }
+
+.menu-btn:hover {
+  color: #fff;
+  background-color: #9191bd;
+  border-color: #9191bd;
+}
+
+.sidebar.active .menu-btn:hover i {
+  color: #fff;
+}
+
 .sidebar.active {
   width: 92px;
 }
+
 .sidebar.active .menu-btn i {
   transform: rotate(180deg);
 }
+
 .sidebar.active .user-details {
   display: none;
 }
+
 .sidebar.active .menu .title {
   text-align: center;
 }
+
 .sidebar.active .menu ul li .arrow {
   display: none;
 }
+
 .sidebar.active .menu > ul > li > a {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .sidebar.active .menu > ul > li > a .text {
   position: absolute;
   left: 70px;
@@ -165,6 +199,7 @@ body {
   visibility: hidden;
   transition: all 0.3s;
 }
+
 .sidebar.active .menu > ul > li > a .text::after {
   content: "";
   position: absolute;
@@ -177,11 +212,13 @@ body {
   transform: rotate(45deg);
   z-index: -1;
 }
+
 .sidebar.active .menu > ul > li > a:hover .text {
   left: 50px;
   opacity: 1;
   visibility: visible;
 }
+
 .sidebar.active .menu .sub-menu {
   position: absolute;
   top: 0;
@@ -189,14 +226,127 @@ body {
   width: 200px;
   border-radius: 20px;
   padding: 10px 20px;
-  border: 1px solid #f6f6f6;
+  border: 1px solid #e0e0e0;
   background-color: #fff;
   box-shadow: 0px 10px 8px rgba(0, 0, 0, 0.1);
 }
 
-.operaciones {
-  margin: 0 auto;
+/* Estilos para inputs y botones */
+input[type="text"],
+input[type="number"],
+input[type="submit"],
+button {
+  background-color: transparent;
+  outline: none;
+  border: solid 2px #9191bd;
+  border-radius: 20px;
+  padding: 10px 20px;
+  color: #9191bd;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: #7a7a9a;
+  color: #7a7a9a;
+}
+
+input[type="submit"],
+button {
+  background-color: #9191bd;
   color: #fff;
+  border: none;
+}
+
+input[type="submit"]:hover,
+button:hover {
+  background-color: #7a7a9a;
+}
+
+.credits {
+  margin: 0 auto;
+  color: #333;
   text-align: center;
   font-size: 3rem;
+}
+
+/* Estilos para la calculadora financiera */
+.credits {
+  margin: 0 auto;
+  color: #333;
+  text-align: center;
+  font-size: 1.2rem;
+  width: 60%;
+}
+
+.credits h1 {
+  margin-bottom: 20px;
+}
+
+#formCalculadoraFinanciera {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border: 2px solid #9191bd;
+  border-radius: 20px;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.input-group label {
+  font-weight: 500;
+  color: #555;
+}
+
+.input-group input[type="number"] {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: #9191bd;
+  font-size: 1rem;
+  width: 60%;
+  text-align: right;
+}
+
+.input-group input[type="number"]:focus {
+  color: #7a7a9a;
+}
+
+button {
+  background-color: #9191bd;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background-color: #7a7a9a;
+}
+
+.result {
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.result p {
+  margin-bottom: 10px;
+}
+
+.result p:last-child {
+  margin-bottom: 0;
 }
