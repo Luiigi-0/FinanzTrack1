@@ -5,12 +5,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- ICONS -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <!-- STYLESHEET -->
     <link rel="stylesheet" href="Css/home.css" />
-
     <title>Sidebar</title>
+    <style>
+        #myChart {
+            width: 75px;
+            height: 75px;
+        }
+    </style>
 </head>
 
 <body>
@@ -51,7 +54,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="./semanales.php">
+                                    <a href="./mensuales.php">
                                         <span class="text">Gastos mensuales</span>
                                     </a>
                                 </li>
@@ -133,7 +136,7 @@
 
         <form id="formCalculadoraFinanciera">
             <div class="input-group">
-                <label for="ingresosPasivos">Ingresos Pasivos:</label>
+                <label for="ingresosPasivos">Ingresos Semanales:</label>
                 <input type="number" id="ingresosPasivos" step="any">
             </div>
             <div class="input-group">
@@ -141,15 +144,15 @@
                 <input type="number" id="ingresosActivos" step="any">
             </div>
             <div class="input-group">
-                <label for="gastosAlquiler">Alquiler:</label>
+                <label for="gastosAlquiler">Alimentacion:</label>
                 <input type="number" id="gastosAlquiler" step="any">
             </div>
             <div class="input-group">
-                <label for="gastosGenerales">Gastos Generales:</label>
+                <label for="gastosGenerales">Transporte:</label>
                 <input type="number" id="gastosGenerales" step="any">
             </div>
             <div class="input-group">
-                <label for="gastosExtras">Gastos Extras:</label>
+                <label for="gastosExtras">Entretenimiento:</label>
                 <input type="number" id="gastosExtras" step="any">
             </div>
             <div class="input-group">
@@ -163,16 +166,106 @@
             <button type="button" onclick="calcularYMostrarResultados()">Calcular</button>
             <button type="reset">Reset</button>
         </form>
-        <div class="result" id="result">
-            <!-- Aquí se mostrarán los resultados -->
-        </div>
+        <!-- Agrega un espacio para mostrar los resultados -->
+        <div class="result" id="result"></div>
+        <canvas id="myChart"></canvas>
     </div>
-    </div>
-    <script src="Js/oper.js"></script>
+    <script>
+        let ingresosPasivos = 0;
+        let ingresosActivos = 0;
+        let gastosAlquiler = 0;
+        let gastosGenerales = 0;
+        let gastosExtras = 0;
+        let deudas = 0;
+        let dineroTotal = 0;
+        let fechaIngreso = "";
+
+        function ingresarDatos() {
+            ingresosPasivos = parseFloat(document.getElementById('ingresosPasivos').value) || 0;
+            ingresosActivos = parseFloat(document.getElementById('ingresosActivos').value) || 0;
+            gastosAlquiler = parseFloat(document.getElementById('gastosAlquiler').value) || 0;
+            gastosGenerales = parseFloat(document.getElementById('gastosGenerales').value) || 0;
+            gastosExtras = parseFloat(document.getElementById('gastosExtras').value) || 0;
+            deudas = parseFloat(document.getElementById('deudas').value) || 0;
+            fechaIngreso = document.getElementById('fechaIngreso').value;
+        }
+
+        function calcularDineroTotal() {
+            dineroTotal = ingresosPasivos + ingresosActivos - (gastosAlquiler + gastosGenerales + gastosExtras) - deudas;
+        }
+
+        function mostrarResultados() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `
+                <p>Ingresos pasivos: ${ingresosPasivos}</p>
+                <p>Ingresos activos: ${ingresosActivos}</p>
+                <p>Gastos Alquiler: ${gastosAlquiler}</p>
+                <p>Gastos Generales: ${gastosGenerales}</p>
+                <p>Gastos Extras: ${gastosExtras}</p>
+                <p>Deudas: ${deudas}</p>
+                <p>Fecha de ingreso: ${fechaIngreso}</p>
+                <p><strong>Dinero total: ${dineroTotal}</strong></p>
+            `;
+
+            const ctx = document.getElementById('myChart').getContext('2d');
+            const myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Ingresos Pasivos', 'Ingresos Activos', 'Gastos Alquiler', 'Gastos Generales', 'Gastos Extras', 'Deudas'],
+                    datasets: [{
+                        label: 'Valor',
+                        data: [ingresosPasivos, ingresosActivos, gastosAlquiler, gastosGenerales, gastosExtras, deudas],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+                    indexAxis: 'x', // Cambia el eje de índice al eje y para controlar la anchura de la barra
+                    elements: {
+                        bar: {
+                            barThickness: 10 // Modifica este valor según tu preferencia
+                        }
+                    }
+                }
+            });
+        }
+
+        function calcularYMostrarResultados() {
+            ingresarDatos();
+            calcularDineroTotal();
+            mostrarResultados();
+        }
+
+        document.getElementById('formCalculadoraFinanciera').addEventListener('submit', function (event) {
+            event.preventDefault();
+            calcularYMostrarResultados();
+        });
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
         integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
         crossorigin="anonymous"></script>
     <script src="Js/home.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 
 </html>
