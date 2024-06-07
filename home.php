@@ -178,7 +178,7 @@
         </div>
       </div>
     </div>
-    <script src="oper.js"></script>
+    <script src="Js/oper.js"></script>
         </h1>
       </div>
     </div>
@@ -188,6 +188,6 @@
       integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
       crossorigin="anonymous"
     ></script>
-    <script src="home.js"></script>
+    <script src="Js/home.js"></script>
   </body>
 </html>
