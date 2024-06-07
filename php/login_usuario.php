@@ -12,7 +12,7 @@
 
     if (mysqli_num_rows($validar_login) > 0){
         $_SESSION['user'] = $email;
-        header("location: ../inicio.php");
+        header("location: ../home.php");
         exit;
 
     } else {

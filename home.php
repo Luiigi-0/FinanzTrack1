@@ -122,9 +122,9 @@
               </a>
             </li>
             <li>
-              <a href="../LoginRegisterForm/index.php">
+            <a href="php/cerrar_sesion.php">
                 <i class="icon ph-bold ph-sign-out"></i>
-                <span class="text">Logout</span>
+                <span class="text">Cerrar sesión</span>
               </a>
             </li>
           </ul> 
