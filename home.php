@@ -9,7 +9,7 @@
     <!-- ICONS -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <!-- STYLESHEET -->
-    <link rel="stylesheet" href="home.css" />
+    <link rel="stylesheet" href="Css/home.css" />
 
     <title>Sidebar</title>
   </head>
