@@ -34,6 +34,7 @@ function mostrarResultados() {
         <p>Gastos Generales: ${gastosGenerales}</p>
         <p>Gastos Extras: ${gastosExtras}</p>
         <p>Deudas: ${deudas}</p>
+        <p>Fecha de ingreso: ${fechaIngreso}</p>
         <p><strong>Dinero total: ${dineroTotal}</strong></p>
     `;
 }
